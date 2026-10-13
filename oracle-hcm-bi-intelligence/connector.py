@@ -117,7 +117,7 @@ def _client(
         bindings = []
         for service in client.wsdl.services.values():
             for port in service.ports.values():
-                bindings.append(port.binding.name.text)
+                bindings.append(str(port.binding.name))
         if not bindings:
             raise ConnectorError("The WSDL contains no SOAP bindings.")
         # An explicitly supplied override is applied to the first binding exposed by the WSDL.
